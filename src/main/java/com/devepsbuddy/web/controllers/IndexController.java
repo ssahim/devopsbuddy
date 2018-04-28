@@ -1,15 +1,12 @@
-package com.devepsbuddy;
+package com.devepsbuddy.web.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import java.security.PublicKey;
-
 @Controller
-public class indexcontroller {
-
+public class IndexController {
     @RequestMapping("/")
-    public String sayHello(){
+    public String home(){
         return "index";
     }
 }
