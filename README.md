@@ -1,13 +1,13 @@
 # devopsbuddy
 A main skeleton for my web applications
 
-#Technologies used:
+# Technologies used:
 
-##Backend
+## Backend
 1. Java with Spring Boot framework
 2. JPA Hibernate framework
 
-##Frontend
+## Frontend
 1.Bootstrape
 2.Javascript
 
