@@ -1,0 +1,17 @@
+package com.devepsbuddy.web.controllers;
+
+import com.devepsbuddy.backend.persistence.domain.backend.Plan;
+import com.devepsbuddy.backend.persistence.repositories.PlanRepository;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+@Controller
+public class IndexController {
+    @RequestMapping("/")
+    public String home(){
+        return "index";
+    }
+
+
+}
+
