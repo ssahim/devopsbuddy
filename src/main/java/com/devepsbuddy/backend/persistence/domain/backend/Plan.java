@@ -22,6 +22,11 @@ public class Plan implements Serializable {
 
     }
 
+    public Plan(com.devopsbuddy.enums.PlansEnum plansEnum){
+        this.id=plansEnum.getId();
+        this.name=plansEnum.getPlanName();
+    }
+
     public int getId() {
         return id;
     }

@@ -18,6 +18,11 @@ public class Role implements Serializable {
 
     }
 
+    public Role(com.devopsbuddy.enums.RolesEnum rolesEnum){
+        this.id=rolesEnum.getId();
+        this.name=rolesEnum.getRoleName();
+    }
+
     @OneToMany(mappedBy = "role", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private Set<UserRole> userRoles=new HashSet<>();
 
