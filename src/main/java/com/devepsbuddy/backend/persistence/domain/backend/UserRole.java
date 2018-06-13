@@ -1,5 +1,7 @@
 package com.devepsbuddy.backend.persistence.domain.backend;
 
+import com.sun.xml.internal.bind.v2.TODO;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Objects;
@@ -8,15 +10,13 @@ import java.util.Objects;
 @Table(name = "user_role")
 public class UserRole implements Serializable {
 
-    private static final long serialVersionUID=1L;
+    /*      FIELDS     */
 
-    public UserRole() {
-    }
+    private static final long serialVersionUID = 1L;
 
-    public UserRole(User user, Role role){
-        this.user=user;
-        this.role=role;
-    }
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private long id;
 
     @Id
     @ManyToOne(fetch = FetchType.LAZY)
@@ -27,6 +27,17 @@ public class UserRole implements Serializable {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "role_id")
     private Role role;
+
+
+    /*      METHODS     */
+
+    public UserRole() {
+    }
+
+    public UserRole(User user, Role role) {
+        this.user = user;
+        this.role = role;
+    }
 
     public User getUser() {
         return user;
@@ -44,18 +55,27 @@ public class UserRole implements Serializable {
         this.role = role;
     }
 
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
+
         UserRole userRole = (UserRole) o;
-        return Objects.equals(user, userRole.user) &&
-                Objects.equals(role, userRole.role);
+
+        return id == userRole.id;
     }
 
     @Override
     public int hashCode() {
-
-        return Objects.hash(user, role);
+        return (int) (id ^ (id >>> 32));
     }
 }

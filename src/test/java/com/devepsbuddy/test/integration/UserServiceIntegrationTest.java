@@ -5,7 +5,7 @@ import com.devepsbuddy.backend.persistence.domain.backend.Role;
 import com.devepsbuddy.backend.persistence.domain.backend.User;
 import com.devepsbuddy.backend.persistence.domain.backend.UserRole;
 import com.devepsbuddy.backend.service.UserService;
-import com.devepsbuddy.utils.UsersUtils;
+import com.devepsbuddy.utils.UserUtils;
 import com.devopsbuddy.enums.PlansEnum;
 import com.devopsbuddy.enums.RolesEnum;
 import org.junit.Assert;
@@ -26,18 +26,15 @@ public class UserServiceIntegrationTest {
     private UserService userService;
 
 
+
     @Test
     public void testCreateNewUser() throws Exception {
-
-        Set<UserRole> userRoles=new HashSet<>();
-
-        User basicUser=UsersUtils.createBasicUser();
+        Set<UserRole> userRoles = new HashSet<>();
+        User basicUser = UserUtils.createBasicUser();
         userRoles.add(new UserRole(basicUser, new Role(RolesEnum.BASIC)));
-
-        User user=userService.createUser(basicUser, PlansEnum.BASIC, userRoles);
+        User user = userService.createUser(basicUser, PlansEnum.BASIC, userRoles);
 
         Assert.assertNotNull(user);
-
         Assert.assertNotNull(user.getId());
     }
 }

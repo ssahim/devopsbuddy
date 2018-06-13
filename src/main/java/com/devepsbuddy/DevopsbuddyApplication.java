@@ -4,14 +4,13 @@ import com.devepsbuddy.backend.persistence.domain.backend.Role;
 import com.devepsbuddy.backend.persistence.domain.backend.User;
 import com.devepsbuddy.backend.persistence.domain.backend.UserRole;
 import com.devepsbuddy.backend.service.UserService;
-import com.devepsbuddy.utils.UsersUtils;
+import com.devepsbuddy.utils.UserUtils;
 import com.devopsbuddy.enums.PlansEnum;
 import com.devopsbuddy.enums.RolesEnum;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -28,7 +27,7 @@ public class DevopsbuddyApplication implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        User user=UsersUtils.createBasicUser();
+        User user=UserUtils.createBasicUser();
         Set<UserRole> userRoles=new HashSet<>();
         userRoles.add(new UserRole(user, new Role(RolesEnum.BASIC)));
 
